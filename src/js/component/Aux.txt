@@ -64,3 +64,32 @@ export function ToDoList(props) {
 		</div>
 	);
 }
+
+// Chequear si existe el usuario
+	async function CheckUser() {
+		let response = await fetch(`${baseUrl}/user/franfossi`);
+		if (response.ok) {
+			let list = await response.json();
+			console.log(list);
+			setTasks(list);
+		} else {
+			console.log(response.status);
+			AddUser();
+		}
+	}
+
+	// Agregar nuevo usuario
+	async function AddUser() {
+		try {
+			let response = await fetch(`${baseUrl}/user/franfossi`, {
+				method: "POST",
+				body: JSON.stringify([]),
+				headers: {
+					"Content-Type": "application/json"
+				}
+			});
+			console.log(response);
+		} catch (error) {
+			console.log(error);
+		}
+	}

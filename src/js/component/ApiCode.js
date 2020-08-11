@@ -1,5 +1,6 @@
 const fetch = require("node-fetch");
 const baseUrl = "https://assets.breatheco.de/apis/fake/todos";
+
 const getTodos = async (username) => {
     const response = await fetch(`${baseUrl}/user/${username}`);
     try {
