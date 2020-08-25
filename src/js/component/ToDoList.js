@@ -11,21 +11,6 @@ export function ToDoList(props) {
 	const [tasks, setTasks] = useState([]);
 	const [userIsReady, setUserIsReady] = useState(false);
 
-	// En esta constante se guardan las tareas
-	//const handleSubmit = () => {
-	//	setTasks([...tasks, task]);
-	//	setTask("");
-	//};
-
-	// Aqui seleccionamos la tarea a borrar
-
-	//const handleDelete = indexToDelete => {
-	//	const newTasks = tasks.filter((task, index) => {
-	//		return index != indexToDelete;
-	//	});
-	//	setTasks(newTasks);
-	//};
-
 	// Funciones para la API
 
 	// Agregar nuevas tareas
@@ -176,10 +161,6 @@ export function ToDoList(props) {
 		console.log("useEffect que solo se ejecuta la primera vez");
 	}, []);
 
-	//useEffect(() => {
-	//	console.log("useEffect que se ejecuta siempre!!");
-	//});
-
 	return (
 		<div className="container">
 			<div className="d-flex flex-column justify-content-center p-5 mt-5">
@@ -207,7 +188,7 @@ export function ToDoList(props) {
 
 						{tasks.map((task, index) => {
 							return (
-								<div key={"index"}>
+								<div key={index}>
 									<li
 										className="list-group-item d-flex justify-content-between align-items-center myLI"
 										onClick={event => handleDelete(index)}>
